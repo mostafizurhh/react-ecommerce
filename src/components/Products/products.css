@@ -1,22 +1,21 @@
 .shop-container {
     display: grid;
     grid-template-columns: 4fr 1fr;
-    gap: 10px;
     margin-top: 10px;
 }
 
 .product-container {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 
 .cart-container {
-    text-align: center;
     background-color: antiquewhite;
     padding: 5px;
     height: 500px;
+    position: sticky;
+    top: 1%;
 }
 
 .cart-container h4 {

@@ -1,14 +1,39 @@
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    height: 80px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.781);
+/* smaller device */
+@media screen and (max-width:576px) {
+    .header {
+        padding: 5px;
+        background-color: rgba(0, 0, 0, 0.781);
+    }
+
+    .header a {
+        text-decoration: none;
+        color: white;
+        padding: 3px;
+    }
+
+    .header a:hover {
+        background-color: blueviolet;
+    }
+
 }
 
-a {
-    margin-left: 20px;
-    color: white;
-    text-decoration: none;
+/* medium and larger device */
+@media screen and (min-width:576px) and (max-width:992px) {
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 80px;
+        background-color: rgba(0, 0, 0, 0.781);
+    }
+
+    .header a {
+        margin-right: 20px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .header a:hover {
+        background-color: blueviolet;
+    }
 }

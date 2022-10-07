@@ -4,7 +4,7 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './products.css'
 
-const Shop = () => {
+const Products = () => {
     const [products, setProducts] = useState([])
     const [cart, setCart] = useState([])
 
@@ -63,4 +63,4 @@ const Shop = () => {
     );
 };
 
-export default Shop;
+export default Products;

@@ -3,6 +3,8 @@ import './Header.css'
 import logo from '../../images/Logo.svg'
 import { NavLink } from 'react-router-dom';
 
+
+
 const Header = () => {
     return (
         <div >
@@ -11,14 +13,16 @@ const Header = () => {
                     <img src={logo} alt="" />
                 </div>
                 <div >
-                    <a href="/home">Home</a>
-                    <a href="/orders">Orders</a>
-                    <a href="/products">Products</a>
-                    <a href="/inventory">Inventory</a>
-                    <a href="/about">About Us</a>
-                    <a href="/shop">Shop</a>
+                    <NavLink to='/home' className={({ isActive }) =>
+                        isActive ? 'active' : undefined
+                    }>Home</NavLink>
+                    <NavLink to='/orders'>Orders</NavLink>
+                    <NavLink to='/inventory'>Inventory</NavLink>
+                    <NavLink to='/shop'>Shop</NavLink>
+                    <NavLink to='/about'>About Us</NavLink>
                 </div>
             </nav>
+
         </div>
     );
 };

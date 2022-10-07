@@ -17,14 +17,16 @@ function App() {
       children: [
         {
           path: '/',
-          element: <Products></Products>
+          element: <Products></Products> //component
         },
         {
           path: '/home',
+          loader: () => fetch('products.json'), //call api
           element: <Products></Products>
         },
         {
           path: '/orders',
+          loader: () => fetch('products.json'), //call api
           element: <Orders></Orders>
         },
         {

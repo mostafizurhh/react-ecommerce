@@ -7,17 +7,17 @@ export const productsAndCartLoader = async () => {
 
     //get cart
     const savedCart = getStoredCart();
-    const previousCart = [];
+    const initialCart = [];
 
     for (const id in savedCart) {
         const addedProducts = products.find(product => product.id === id);
         if (addedProducts) {
             const quantity = savedCart[id];
             addedProducts.quantity = quantity;
-            previousCart.push(addedProducts);
+            initialCart.push(addedProducts);
         }
     }
+    console.log(initialCart)
 
-
-    return { products, previousCart };
+    return { products: products, initialCart: initialCart };
 }

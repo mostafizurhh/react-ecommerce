@@ -1,11 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Cart from '../Cart/Cart';
 
 const Orders = () => {
-    const products = useLoaderData()
+    const { products, initialCart } = useLoaderData()
+    const [cart, setCart] = useState(initialCart) //using useState() as we want to remove any item from cart
     return (
-        <div>
-            <h2>This is Orders: {products.length}</h2>
+        <div className='shop-container'>
+            <div className='product-container'>
+
+            </div>
+            <div className='cart-container'>
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
     );
 };

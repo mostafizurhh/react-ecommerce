@@ -6,15 +6,19 @@ import Product from '../Product/Product';
 import './products.css'
 
 const Products = () => {
-    const products = useLoaderData()
+    const products = useLoaderData()     //load data using loader
     const [cart, setCart] = useState([])
+
+    /*********load data using useState and useEffect***** 
+     
     // const [products, setProducts] = useState([])
 
     // useEffect(() => {
     //     fetch('products.json')
     //         .then(res => res.json())
     //         .then(data => setProducts(data))
-    // }, [])
+    // }, []) 
+    ******************************************************/
 
     useEffect(() => {
         const storedCart = getStoredCart();

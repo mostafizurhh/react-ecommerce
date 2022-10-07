@@ -6,6 +6,7 @@ import Products from './components/Products/Products'
 import Inventory from './components/Inventory/Inventory'
 import Shop from './components/Shop/Shop'
 import About from './components/About/About'
+import { productsAndCartLoader } from './loaders/ProductsAndCartLoader';
 
 
 
@@ -26,7 +27,7 @@ function App() {
         },
         {
           path: '/orders',
-          loader: () => fetch('products.json'), //call api
+          loader: productsAndCartLoader, //call common loader function
           element: <Orders></Orders>
         },
         {

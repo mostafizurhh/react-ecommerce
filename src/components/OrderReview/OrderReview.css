@@ -1,0 +1,29 @@
+.review-order-details {
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.review-order-details img {
+    width: 80px;
+    height: 80px;
+}
+
+.cart-item-details {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-info p {
+    margin: 0;
+}
+
+.cart-item-info {
+    margin-left: 10px;
+    margin-right: 10px;
+}

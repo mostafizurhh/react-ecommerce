@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { addToDb, getStoredCart } from '../../utilities/fakedb';
+import { Link, useLoaderData } from 'react-router-dom';
+import { addToDb, deleteShoppingCart, getStoredCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './products.css'
@@ -51,6 +51,13 @@ const Products = () => {
         addToDb(selectedProducts.id)
     }
 
+    //clear full cart and remove items from database
+    const clearCart = () => {
+        setCart([]);
+        deleteShoppingCart()
+    }
+
+
     return (
         <div className='shop-container'>
             <div className='product-container'>
@@ -63,7 +70,15 @@ const Products = () => {
                 }
             </div>
             <div className='cart-container'>
-                <Cart cart={cart}></Cart>
+                <Cart
+                    cart={cart}
+                    clearCart={clearCart}
+                >
+                    {/* we will get this button as a children of Cart component */}
+                    <Link to='/orders'>
+                        <button>Review Items</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
     );

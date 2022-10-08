@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { removeFromDb } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import OrderReview from '../OrderReview/OrderReview';
@@ -27,6 +27,10 @@ const Orders = () => {
                         product={product}
                         handleRemoveItemFromCart={handleRemoveItemFromCart}
                     ></OrderReview>)
+                }
+                {/* if cart is empty, it will show following message */}
+                {
+                    cart.length === 0 && <h2>No items to review. Please choose your items <Link to='/home'>here</Link>. </h2>
                 }
 
             </div>

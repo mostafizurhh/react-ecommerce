@@ -1,6 +1,6 @@
 .product {
     position: relative;
-    border: 1.5px solid salmon;
+    border: 1.5px solid rgb(51, 217, 225);
     width: 210px;
     height: 400px;
     margin-bottom: 10px;
@@ -14,6 +14,7 @@
 .product img {
     width: 90%;
     margin: 10px;
+    border-radius: 10px;
 }
 
 .btn-cart {
@@ -30,5 +31,6 @@
 }
 
 .btn-cart:hover {
-    background-color: coral;
+    background-color: rgba(104, 96, 192, 0.782);
+    color: white;
 }

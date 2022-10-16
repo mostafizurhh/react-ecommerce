@@ -7,6 +7,8 @@ import Inventory from './components/Inventory/Inventory'
 import Shop from './components/Shop/Shop'
 import About from './components/About/About'
 import { productsAndCartLoader } from './loaders/ProductsAndCartLoader';
+import Login from './components/Login/Login';
+import Register from './components/Register/Register';
 
 
 
@@ -18,6 +20,7 @@ function App() {
       children: [
         {
           path: '/',
+          loader: () => fetch('products.json'), //call api
           element: <Products></Products> //component
         },
         {
@@ -37,6 +40,14 @@ function App() {
         {
           path: '/shop',
           element: <Shop></Shop>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
+        },
+        {
+          path: '/register',
+          element: <Register></Register>
         }
       ]
     },

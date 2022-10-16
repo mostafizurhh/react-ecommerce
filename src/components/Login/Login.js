@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from './google.png'
 
 const Login = () => {
     return (
@@ -21,15 +22,23 @@ const Login = () => {
                             <label className="label mt-2">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
-
-                            {/* toggle button */}
-                            <label className="label mt-2">
-                                <small>New to our website?</small>
-                                <Link to="/register" className="label-text-alt link link-hover ml-2">Register here!</Link>
-                            </label>
                         </div>
                         <div className="form-control mt-3">
                             <button className="btn btn-primary">Login</button>
+                        </div>
+                        <div className="form-control mt-2">
+                            {/* toggle button */}
+                            <label className="label">
+                                <small>New to our website?</small>
+                                <Link to="/register" className="label-text-alt link link-hover ml-2">Register here!</Link>
+                            </label>
+                            <small>
+                                ------------------OR----------------
+                            </small>
+                            <button className="btn bg-white capitalize text-indigo-500">
+                                <img src={logo} style={{ width: 25, height: 25, marginRight: 10 }} />
+                                Continue with Google
+                            </button>
                         </div>
                     </form>
                 </div>

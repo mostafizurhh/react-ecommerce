@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from './google.png'
 
 const Register = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content ">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <p className="text-2xl text-center font-bold">Register with your email</p>
                     <form className="card-body">
                         <div className="form-control">
                             <label className="label">
@@ -24,15 +26,23 @@ const Register = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-
-                            {/* button toggle */}
-                            <label className="label mt-2">
-                                <small>Already have an account?</small>
-                                <Link to="/login" className="label-text-alt link link-hover ml-2">Login here!</Link>
-                            </label>
                         </div>
                         <div className="form-control mt-3">
                             <button className="btn btn-primary">Register</button>
+                        </div>
+                        <div className="form-control mt-2">
+                            {/* button toggle */}
+                            <label className="label mt-1">
+                                <small>Already have an account?</small>
+                                <Link to="/login" className="label-text-alt link link-hover ml-2">Login here!</Link>
+                            </label>
+                            <small>
+                                ------------------OR----------------
+                            </small>
+                            <button className="btn bg-white capitalize text-indigo-500">
+                                <img src={logo} style={{ width: 25, height: 25, marginRight: 10 }} />
+                                Register with Google
+                            </button>
                         </div>
                     </form>
                 </div>

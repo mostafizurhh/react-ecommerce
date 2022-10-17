@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css'
 import logo from '../../images/Logo.svg'
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../contexts/UserContext';
 
 
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
+
     return (
         <div >
             <nav className='header'>
@@ -22,6 +25,9 @@ const Header = () => {
                     <NavLink to='/about'>About Us</NavLink>
                     <NavLink to='/login'>Login</NavLink>
                     <NavLink to='/register'>Register</NavLink>
+                </div>
+                <div className='text-white'>
+                    {user?.email}
                 </div>
             </nav>
 

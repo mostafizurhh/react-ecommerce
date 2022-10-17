@@ -1,14 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from './google.png'
 
 const Register = () => {
+    const [error, setError] = useState(null)
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.userName.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
+
+        console.log(name, email, password, confirmPassword)
+        if (password.length < 8) {
+            setError('Password must be at least 8 charecter');
+            return;
+        }
+        if (password !== confirmPassword) {
+            setError('password did not match');
+            return;
+        }
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content ">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <p className="text-2xl text-center font-bold">Register with your email</p>
-                    <form className="card-body">
+                    <form onSubmit={handleSubmit} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">UserName</span>
@@ -27,6 +48,13 @@ const Register = () => {
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Confirm Password</span>
+                            </label>
+                            <input type="password" name='confirmPassword' placeholder="confirm your password" className="input input-bordered" required />
+                        </div>
+                        <p className='text-red-700'><small>{error}</small></p>
                         <div className="form-control mt-3">
                             <button className="btn btn-primary">Register</button>
                         </div>

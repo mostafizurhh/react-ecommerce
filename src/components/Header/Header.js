@@ -23,9 +23,20 @@ const Header = () => {
                     <NavLink to='/inventory'>Inventory</NavLink>
                     <NavLink to='/shop'>Shop</NavLink>
                     <NavLink to='/about'>About Us</NavLink>
-                    <NavLink to='/login'>Login</NavLink>
-                    <NavLink to='/register'>Register</NavLink>
+
+                    {/* implement signOut button */}
+                    {
+                        user?.uid ?
+                            <button className='btn btn-xs btn-primary'>Sign Out</button>
+                            :
+                            <>
+                                <NavLink to='/login'>Login</NavLink>
+                                <NavLink to='/register'>Register</NavLink>
+                            </>
+                    }
                 </div>
+
+                {/* show current user */}
                 <div className='text-white'>
                     {user?.email}
                 </div>

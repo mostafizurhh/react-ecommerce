@@ -69,14 +69,14 @@ const Products = () => {
                     </Product>)
                 }
             </div>
-            <div className='cart-container'>
+            <div className='cart-container text-center'>
                 <Cart
                     cart={cart}
                     clearCart={clearCart}
                 >
                     {/* we will get this button as a children of Cart component */}
                     <Link to='/orders'>
-                        <button>Review Items</button>
+                        <button className='btn btn-success'>Review Items</button>
                     </Link>
                 </Cart>
             </div>

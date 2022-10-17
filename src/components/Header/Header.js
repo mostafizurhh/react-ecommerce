@@ -21,7 +21,6 @@ const Header = () => {
                     }>Home</NavLink>
                     <NavLink to='/orders'>Orders</NavLink>
                     <NavLink to='/inventory'>Inventory</NavLink>
-                    <NavLink to='/shop'>Shop</NavLink>
                     <NavLink to='/about'>About Us</NavLink>
 
                     {/* implement signOut button */}

@@ -9,6 +9,7 @@ import About from './components/About/About'
 import { productsAndCartLoader } from './loaders/ProductsAndCartLoader';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Shipping from './components/Shipping/Shipping';
 
 
 
@@ -38,8 +39,8 @@ function App() {
           element: <Inventory></Inventory>
         },
         {
-          path: '/shop',
-          element: <Shop></Shop>
+          path: '/shipping',
+          element: <Shipping></Shipping>
         },
         {
           path: '/login',

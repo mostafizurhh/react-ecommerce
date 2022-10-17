@@ -7,7 +7,7 @@ import { AuthContext } from '../contexts/UserContext';
 
 
 const Header = () => {
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     return (
         <div >
@@ -27,7 +27,7 @@ const Header = () => {
                     {/* implement signOut button */}
                     {
                         user?.uid ?
-                            <button className='btn btn-xs btn-primary'>Sign Out</button>
+                            <button onClick={logOut} className='btn btn-xs btn-primary'>Log Out</button>
                             :
                             <>
                                 <NavLink to='/login'>Login</NavLink>

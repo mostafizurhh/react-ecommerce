@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/UserContext';
 import logo from './google.png'
 
 const Login = () => {
     const { logIn } = useContext(AuthContext);
-    const navigate = useNavigate();
+    const navigate = useNavigate(); /* to navigate from login page*/
+    const location = useLocation(); /* get current url location */
+    const from = location.state?.from?.pathname || '/'; /* get current url location */
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -22,7 +24,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate('/');
+                navigate(from, { replace: true }); /* reroute users to previous location */
             })
             .catch(error => console.error(error))
     }

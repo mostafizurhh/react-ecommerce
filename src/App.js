@@ -21,12 +21,12 @@ function App() {
       children: [
         {
           path: '/',
-          loader: () => fetch('http://localhost:5000/products'), //call api
+          // loader: () => fetch('http://localhost:5000/products'), //call api
           element: <Products></Products> //component
         },
         {
           path: '/home',
-          loader: () => fetch('http://localhost:5000/products'), //call api
+          // loader: () => fetch('http://localhost:5000/products'), //call api
           element: <Products></Products>
         },
         {

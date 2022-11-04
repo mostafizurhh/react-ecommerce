@@ -9,7 +9,7 @@ const Orders = () => {
     const [cart, setCart] = useState(initialCart) //using useState() as we want to remove any item from cart
 
     const handleRemoveItemFromCart = id => {
-        const remainingItemInCart = cart.filter(product => product.id !== id);
+        const remainingItemInCart = cart.filter(product => product._id !== id);
         setCart(remainingItemInCart)
         removeFromDb(id)
     }
@@ -20,19 +20,21 @@ const Orders = () => {
     }
     return (
         <div className='shop-container'>
-            <div className='orders-container'>
-                {
-                    cart.map(product => <OrderReview
-                        key={product.id}
-                        product={product}
-                        handleRemoveItemFromCart={handleRemoveItemFromCart}
-                    ></OrderReview>)
-                }
-                {/* if cart is empty, it will show following message */}
-                {
-                    cart.length === 0 && <h2>No items to review. Please choose your items <Link to='/home'>here</Link>. </h2>
-                }
+            <div className='flex items-center justify-center'>
+                <div>
+                    {
+                        cart.map(product => <OrderReview
+                            key={product._id}
+                            product={product}
+                            handleRemoveItemFromCart={handleRemoveItemFromCart}
+                        ></OrderReview>)
+                    }
+                    {/* if cart is empty, it will show following message */}
+                    {
+                        cart.length === 0 && <h2>No items to review. Please choose your items <Link to='/home'>here</Link>. </h2>
+                    }
 
+                </div>
             </div>
             <div className='cart-container'>
                 <Cart

@@ -10,23 +10,28 @@ REQUIRED FOR PAGINATION
 1. count of total products/data : done (73)
 2. products/data shown per page : 10
 3. total page = total products/data per page >> 73/10 >> 7.3 >> 8
-4. page number/index
+4. current page: page number/index
 */
 
 const Products = () => {
-    const { count, products } = useLoaderData()     //load data using loader
+    const { count, products } = useLoaderData() //load data using loader
     const [cart, setCart] = useState([])
-    const itemsPerPage = 10;
 
-    /*********load data using useState and useEffect***** 
+    /* set pagination state */
+    const [currentPage, setCurrentPage] = useState(0);
+    const [itemsPerPage, setItemPerPage] = useState(10);
+
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    /***load products data using useState and useEffect**** 
      
-    // const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([])
 
-    // useEffect(() => {
-    //     fetch('products.json')
-    //         .then(res => res.json())
-    //         .then(data => setProducts(data))
-    // }, []) 
+    useEffect(() => {
+         fetch('products.json')
+             .then(res => res.json())
+             .then(data => setProducts(data))
+     }, []) 
     ******************************************************/
 
     useEffect(() => {
@@ -87,6 +92,21 @@ const Products = () => {
                         <button className='btn btn-success'>Review Items</button>
                     </Link>
                 </Cart>
+            </div>
+
+            {/* create conditional pagination buttons */}
+
+            <div className='text-center mt-5 mb-5' >
+                <p> currently showing page {currentPage}</p>
+                {
+                    [...Array(numberOfPages).keys()].map(page => <button
+                        key={page}
+                        className={currentPage === page ? 'btn btn-primary mr-2 mt-2' : 'btn mr-2 mt-2'}
+                        onClick={() => setCurrentPage(page)}
+                    >
+                        {page}
+                    </button>)
+                }
             </div>
         </div>
     );

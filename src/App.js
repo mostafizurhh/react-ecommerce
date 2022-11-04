@@ -4,7 +4,6 @@ import Main from './layouts/Main';
 import Orders from './components/Orders/Orders'
 import Products from './components/Products/Products'
 import Inventory from './components/Inventory/Inventory'
-import Shop from './components/Shop/Shop'
 import About from './components/About/About'
 import { productsAndCartLoader } from './loaders/ProductsAndCartLoader';
 import Login from './components/Login/Login';
@@ -22,12 +21,12 @@ function App() {
       children: [
         {
           path: '/',
-          loader: () => fetch('products.json'), //call api
+          loader: () => fetch('http://localhost:5000/products'), //call api
           element: <Products></Products> //component
         },
         {
           path: '/home',
-          loader: () => fetch('products.json'), //call api
+          loader: () => fetch('http://localhost:5000/products'), //call api
           element: <Products></Products>
         },
         {

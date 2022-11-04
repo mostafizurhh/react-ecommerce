@@ -5,9 +5,18 @@ import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './products.css'
 
+/* 
+REQUIRED FOR PAGINATION
+1. count of total products/data : done (73)
+2. products/data shown per page : 10
+3. total page = total products/data per page >> 73/10 >> 7.3 >> 8
+4. page number/index
+*/
+
 const Products = () => {
-    const products = useLoaderData()     //load data using loader
+    const { count, products } = useLoaderData()     //load data using loader
     const [cart, setCart] = useState([])
+    const itemsPerPage = 10;
 
     /*********load data using useState and useEffect***** 
      
@@ -45,7 +54,6 @@ const Products = () => {
             const rest = cart.filter(product => product._id !== selectedProducts._id);
             existsProduct.quantity = existsProduct.quantity + 1;
             newCart = [...rest, existsProduct]
-
         }
         setCart(newCart)
         addToDb(selectedProducts._id)

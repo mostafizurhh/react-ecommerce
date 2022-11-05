@@ -116,8 +116,8 @@ const Products = () => {
                 <div className='flex items-center justify-center'>
                     <p className='mr-2 font-bold text-lime-300'>Show items per page</p>
                     <select onChange={event => setItemsPerPage(event.target.value)}>
+                        <option value={10}>10</option>
                         <option value={5}>5</option>
-                        <option value={10} selected>10</option>
                         <option value={15}>15</option>
                         <option value={20}>20</option>
                     </select>

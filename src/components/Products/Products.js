@@ -43,15 +43,29 @@ const Products = () => {
     useEffect(() => {
         const storedCart = getStoredCart();
         const savedCart = [];
-        for (const id in storedCart) {
-            const addedProduct = products.find(product => product._id === id);
-            if (addedProduct) {
-                const quantity = storedCart[id];
-                addedProduct.quantity = quantity;
-                savedCart.push(addedProduct)
-            }
-        }
-        setCart(savedCart);
+
+        /* call API from server and set cart data */
+        const productIds = Object.keys(storedCart);
+        fetch('http://localhost:5000/productsById', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(productIds)
+        })
+            .then(res => res.json())
+            .then(storedProduct => {
+                for (const id in storedCart) {
+                    const addedProduct = storedProduct.find(product => product._id === id);
+                    if (addedProduct) {
+                        const quantity = storedCart[id];
+                        addedProduct.quantity = quantity;
+                        savedCart.push(addedProduct)
+                    }
+                }
+                setCart(savedCart);
+            })
+            .catch(e => console.error(e))
     }, [products])
 
     const handleAddToCart = (selectedProducts) => {
@@ -114,8 +128,8 @@ const Products = () => {
 
                 {/* conditions for items per page */}
                 <div className='flex items-center justify-center'>
-                    <p className='mr-2 font-bold text-lime-300'>Show items per page</p>
-                    <select onChange={event => setItemsPerPage(event.target.value)}>
+                    <p className='mr-2 font-bold text-violet-400'>Show items per page</p>
+                    <select className='btn-tiny btn-outline  btn-info border rounded' onChange={event => setItemsPerPage(event.target.value)}>
                         <option value={10}>10</option>
                         <option value={5}>5</option>
                         <option value={15}>15</option>
@@ -132,7 +146,7 @@ const Products = () => {
                                 className={currentPage === page ? 'btn btn-primary mr-2 mt-4' : 'btn mr-2 mt-4'}
                                 onClick={() => setCurrentPage(page)}
                             >
-                                {page}
+                                {page + 1}
                             </button>)
                         }
                     </div>
